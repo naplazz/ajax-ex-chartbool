@@ -1,7 +1,7 @@
 
-$(document).ready(function refresh() {
+$(document).ready(function () {
   function displayCharts(){
-  var url_base = 'http://157.230.17.132:4016/sales';
+  var url_base = 'http://157.230.17.132:4016/sales/';
   var fatturato_mensile = {
     '1': 0,
     '2': 0,
@@ -59,6 +59,7 @@ $(document).ready(function refresh() {
     success: function(data) {
       ////=========== inizio funzione per recuperare i dati per chart
       for (var i = 0; i < data.length; i++) {
+        var idVendita = data[i].id
         var mese = moment(data[i].date, 'DD/MM/YYYY').format('M');
         var venditore = data[i].salesman;
         var valoreVendita = parseInt(data[i].amount);
@@ -76,12 +77,31 @@ $(document).ready(function refresh() {
         var source   = document.getElementById("entry-template").innerHTML;
         var template = Handlebars.compile(source);
         var context = {
+          id: idVendita,
           venditore: venditore,
           data: data[i].date,
           valore: valoreVendita
         };
         var html    = template(context);
         $('tbody').append(html)
+        $('.btnDel').click(function() {
+
+          var saleId = $(this).attr('data-id')
+      console.log(saleId);
+            $.ajax({
+              url: url_base + saleId,
+              method: 'DELETE',
+              success: function () {
+                alert('eliminato')
+                location.reload();
+              },
+              error: function(){
+                alert('errore')
+              }
+
+            }); // closing ajax post
+
+        }); //closing click
       } //chiuso for
 
       //push dei dati
@@ -131,17 +151,19 @@ displayCharts()
     var newsaleData = $('#datevendita').val()
 
     var newsaleAmount = $('#amount').val()
-      console.log(newsaleAmount)
+
       $.ajax({
         url: 'http://157.230.17.132:4016/sales',
         method: 'POST',
         data: {
+
           'salesman': newsaleSeller,
           'amount': newsaleAmount,
           'date': newsaleData
         },
         success: function () {
           alert('inserito')
+          location.reload()
         },
         error: function(){
           alert('errore')
@@ -155,22 +177,7 @@ displayCharts()
 
 //========================================= delete sale ============
 
-$('#btnDel').click(function() {
-  var saleId = parseInt($('#delete').val())
 
-    $.ajax({
-      url: 'http://157.230.17.132:4016/sales/'+ saleId,
-      method: 'DELETE',
-      success: function () {
-        alert('eliminato')
-      },
-      error: function(){
-        alert('errore')
-      }
-
-    }); // closing ajax post
-
-}); //closing click
 
 
 }); //doc ready close

@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title></title>
-    <!-- Hendlebars -->
+  <!-- Hendlebars -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
   <!-- font -->
   <script src="https://kit.fontawesome.com/a74e6d607f.js"></script>
@@ -47,32 +47,35 @@
     <input id="amount" type="number" name="" value="">
     <button id="btn" type="button" name="button">Inserisci</button>
   </div>
-  <div class="delete">
+  <!-- <div class="delete">
     <input id="delete" type="text" name="" value="">
     <button id="btnDel" type="button" name="button">Delete</button>
 
-  </div>
+  </div> -->
   <div class="display-all-sales">
-    <table >
-  <tbody>
-    <tr>
-      <th> Venditore </th>
-      <th> Data </th>
-      <th> Valore </th>
-    </tr>
+    <table>
+      <tbody>
+        <tr>
+          <th> ID </th>
+          <th> Venditore </th>
+          <th> Data </th>
+          <th> Valore </th>
+        </tr>
 
 
-  </tbody>
-</table>
+      </tbody>
+    </table>
 
   </div>
 
   <script id="entry-template" type="text/x-handlebars-template">
     <tr>
+      <td>{{id}}</td>
       <td>{{venditore}}</td>
       <td>{{data}}</td>
       <td>{{valore}}</td>
-      
+    <td> <button class="btnDel" type="button" name="button" data-id="{{id}}">Delete</button><td>
+
 
     </tr>
 
