@@ -15,6 +15,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
   <!-- Jquery -->
   <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
   <!-- My Js -->
   <script src="main.js" charset="utf-8"></script>
@@ -33,12 +35,48 @@
 
     </div>
 
-
-
-
-
+  </div>
+  <div class="insert-new-sale">
+    <select class="select-seller" name="">
+      <option value="Riccardo">Riccardo</option>
+      <option value="Roberto">Roberto</option>
+      <option value="Marco">Marco</option>
+      <option value="Giuseppe">Giuseppe</option>
+    </select>
+    <input id="datevendita" type="text" placeholder="Inserisci Data" name="" value="">
+    <input id="amount" type="number" name="" value="">
+    <button id="btn" type="button" name="button">Inserisci</button>
+  </div>
+  <div class="delete">
+    <input id="delete" type="text" name="" value="">
+    <button id="btnDel" type="button" name="button">Delete</button>
 
   </div>
+  <div class="display-all-sales">
+    <table >
+  <tbody>
+    <tr>
+      <th> Venditore </th>
+      <th> Data </th>
+      <th> Valore </th>
+    </tr>
+
+
+  </tbody>
+</table>
+
+  </div>
+
+  <script id="entry-template" type="text/x-handlebars-template">
+    <tr>
+      <td>{{venditore}}</td>
+      <td>{{data}}</td>
+      <td>{{valore}}</td>
+      
+
+    </tr>
+
+</script>
 
 </body>
 
