@@ -28,13 +28,13 @@ $(document).ready(function() {
       data: [],
     }]
   };
-  var oggetto_sommaMesi = {
-    labels: ["1Q", "2Q", "3Q", "4Q"],
-    datasets: [{
-      label: 'Somma Vendite',
-      data: [sommaMesi(1,3), sommaMesi(4,6), sommaMesi(7,9), sommaMesi(10,12)],
-    }]
-  };
+  // var oggetto_sommaMesi = {
+  //   labels: ["1Q", "2Q", "3Q", "4Q"],
+  //   datasets: [{
+  //     label: 'Somma Vendite',
+  //     data: [sommaMesi(1, 3), sommaMesi(4, 6), sommaMesi(7, 9), sommaMesi(10, 12)],
+  //   }]
+  // };
   var data_venditori = {
     labels: [],
     datasets: [{
@@ -111,7 +111,10 @@ $(document).ready(function() {
         data_venditori.datasets[0].data.push(fatturato_venditori[z]);
         data_venditori.labels.push(z);
       }
-
+      var q1 = sommaMesi(1, 3);
+      var q2 = sommaMesi(4,6);
+      var q3 =  sommaMesi(7,9)
+      var q4 = sommaMesi(10,12)
       // sommaMesi(1, 5)
 
 
@@ -142,7 +145,13 @@ $(document).ready(function() {
         // The type of chart we want to create
         type: 'line',
         // The data for our dataset
-        // data: oggetto_sommaMesi,
+        data:{
+          labels: ["1Q", "2Q", "3Q", "4Q"],
+          datasets: [{
+            label: 'Somma Vendite',
+            data: [q1, q2, q3, q4],
+          }]
+        },
         // Configuration options go here
         options: {}
       });
@@ -193,4 +202,5 @@ $(document).ready(function() {
     }
     return totSommaMesi
   } //closing sommaMesi
+
 }); //doc ready close
