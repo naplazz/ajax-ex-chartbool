@@ -5,53 +5,32 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title></title>
-  <!-- Hendlebars -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
-  <!-- font -->
   <script src="https://kit.fontawesome.com/a74e6d607f.js"></script>
-  <!-- charts js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
-  <!-- Moment -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
-  <!-- Jquery -->
   <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-
-  <!-- My Js -->
   <script src="main.js" charset="utf-8"></script>
-  <!-- mystyle -->
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
+
   <div class="container">
-    <div class="chart-1">
-      <canvas id="myChart"></canvas>
-    </div>
-    <div class="chart-2">
-      <canvas id="myChart2"></canvas>
-
-    </div>
-
+    <div class="chart-1"> <canvas id="myChart"></canvas> </div>
+    <div class="chart-2"> <canvas id="myChart2"></canvas> </div>
   </div>
-  <div class="insert-new-sale">
-    <select class="select-seller" name="">
+  <div class="insert-new-sale"> <select class="select-seller" name="">
       <option value="Riccardo">Riccardo</option>
       <option value="Roberto">Roberto</option>
       <option value="Marco">Marco</option>
       <option value="Giuseppe">Giuseppe</option>
-    </select>
-    <input id="datevendita" type="text" placeholder="Inserisci Data" name="" value="">
-    <input id="amount" type="number" name="" value="">
-    <button id="btn" type="button" name="button">Inserisci</button>
-  </div>
-  <!-- <div class="delete">
-    <input id="delete" type="text" name="" value="">
-    <button id="btnDel" type="button" name="button">Delete</button>
-
-  </div> -->
+    </select> <input id="datevendita" type="text" placeholder="Inserisci Data" name="" value=""> <input id="amount" type="number" name="" value=""> <button id="btn" type="button" name="button">Inserisci</button> </div>
   <div class="display-all-sales">
     <table>
       <tbody>
@@ -60,27 +39,12 @@
           <th> Venditore </th>
           <th> Data </th>
           <th> Valore </th>
+          <th>Azioni</th>
         </tr>
-
-
       </tbody>
     </table>
-
   </div>
-
-  <script id="entry-template" type="text/x-handlebars-template">
-    <tr>
-      <td>{{id}}</td>
-      <td>{{venditore}}</td>
-      <td>{{data}}</td>
-      <td>{{valore}}</td>
-    <td> <button class="btnDel" type="button" name="button" data-id="{{id}}">Delete</button><td>
-
-
-    </tr>
-
-</script>
-
+  <script id="entry-template" type="text/x-handlebars-template"> <tr> <td>{{id}}</td><td>{{venditore}}</td><td>{{data}}</td><td>{{valore}}</td><td> <button class="btnDel" type="button" name="button" data-id="{{id}}">Delete</button><td> </tr></script>
 </body>
 
 </html>
